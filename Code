@@ -98,5 +98,5 @@ void password2(){
         
     } while (!(pass2 == pass1));
     
-    cout << "\nPassword is valid.";
+    cout << "\nPassword created.";
 }
