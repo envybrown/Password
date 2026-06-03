@@ -79,8 +79,6 @@ void password1(){
             if (hasNumber == false){
                 cout << "At least one number.\n";
             }
-            
-            
         }
         
     } while (!(hasUpper == true && hasLower == true && hasNumber == true));
