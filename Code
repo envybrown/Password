@@ -7,15 +7,17 @@ At least eight (8) characters, including at least one number, at least one upper
 
 using namespace std;
 
+// global integers 
 string pass1;
 string pass2;
 
 void instructions(); // print password requirements 
-void password1(); 
-void password2();
+void password1(); // creates password within boundaries
+void password2(); // checks and comfirms password 
 
 int main()
-{
+{   
+    // call functions in order
     instructions();
     password1();
     password2();
@@ -33,6 +35,7 @@ void instructions(){
 
 void password1(){
     
+    // determiners if password is within boundaries 
     bool hasUpper = false;
     bool hasLower = false;
     bool hasNumber = false;
@@ -45,6 +48,7 @@ void password1(){
         cout << "\nEnter password: ";
         getline (cin, pass1);
         
+        // define whats within boundaries 
         for (char c : pass1){
             if(isupper(c)){
                 hasUpper = true;
@@ -56,7 +60,8 @@ void password1(){
                 hasNumber = true;
             }
         }
-         
+        
+        // prints if outside of boundaries 
         if (pass1.length()<8 || hasUpper == false || hasLower == false || hasNumber == false){
             cout << "Invalid password. Missing:\n";
             
