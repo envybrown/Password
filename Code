@@ -1,0 +1,102 @@
+/* This program will ask the user to enter a password that contains:
+At least eight (8) characters, including at least one number, at least one upper case letter, and at least one lower case letter. */
+
+#include <iostream>
+#include <cstring>
+#include <cctype>
+
+using namespace std;
+
+string pass1;
+string pass2;
+
+void instructions(); // print password requirements 
+void password1(); 
+void password2();
+
+int main()
+{
+    instructions();
+    password1();
+    password2();
+    
+    return 0;
+}
+
+void instructions(){
+    cout << "Create a password. Your password must include: " << endl;
+    cout << "At least eight characters." << endl;
+    cout << "At least one number." << endl;
+    cout << "At least one uppercase letter." << endl;
+    cout << "At least one lowercase letter." << endl;
+}
+
+void password1(){
+    
+    bool hasUpper = false;
+    bool hasLower = false;
+    bool hasNumber = false;
+    
+    do {
+        bool hasUpper = false;
+        bool hasLower = false;
+        bool hasNumber = false;
+    
+        cout << "\nEnter password: ";
+        getline (cin, pass1);
+        
+        for (char c : pass1){
+            if(isupper(c)){
+                hasUpper = true;
+            }
+            if(islower(c)){
+                hasLower = true;
+            }
+            if(isdigit(c)){
+                hasNumber = true;
+            }
+        }
+         
+        if (pass1.length()<8 || hasUpper == false || hasLower == false || hasNumber == false){
+            cout << "Invalid password. Missing:\n";
+            
+            if (pass1.length()>8 || hasUpper == true || hasLower == true || hasNumber == true){
+                cout << "All valid characters.\n";
+            }
+            
+            if (pass1.length()<8){
+                cout << "At least eight characters.\n";
+            }
+            
+            if (hasUpper == false){
+                cout << "At least one uppercase letter.\n";
+            }
+            
+            if (hasLower == false){
+                cout << "At least one lowercase letter.\n";
+            }
+            
+            if (hasNumber == false){
+                cout << "At least one number.\n";
+            }
+            
+            
+        }
+        
+    } while (!(hasUpper == true && hasLower == true && hasNumber == true));
+}
+
+void password2(){
+    do {
+        cout << "\nRe-enter password: ";
+        getline (cin, pass2);
+        
+        if (pass2 != pass1){
+            cout << "Password does not match. Please try again.\n";
+            password1();
+        }
+        
+    } while (!(pass2 == pass1));
+    
+    cout << "\nPassword is valid.";
+}
