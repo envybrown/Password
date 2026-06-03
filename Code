@@ -2,22 +2,20 @@
 At least eight (8) characters, including at least one number, at least one upper case letter, and at least one lower case letter. */
 
 #include <iostream>
-#include <cstring>
+#include <string>
 #include <cctype>
 
 using namespace std;
 
-// global integers 
 string pass1;
 string pass2;
 
 void instructions(); // print password requirements 
-void password1(); // creates password within boundaries
-void password2(); // checks and comfirms password 
+void password1(); 
+void password2();
 
 int main()
-{   
-    // call functions in order
+{
     instructions();
     password1();
     password2();
@@ -35,20 +33,18 @@ void instructions(){
 
 void password1(){
     
-    // determiners if password is within boundaries 
     bool hasUpper = false;
     bool hasLower = false;
     bool hasNumber = false;
     
     do {
-        bool hasUpper = false;
-        bool hasLower = false;
-        bool hasNumber = false;
+        hasUpper = false;
+        hasLower = false;
+        hasNumber = false;
     
         cout << "\nEnter password: ";
         getline (cin, pass1);
         
-        // define whats within boundaries 
         for (char c : pass1){
             if(isupper(c)){
                 hasUpper = true;
@@ -60,14 +56,9 @@ void password1(){
                 hasNumber = true;
             }
         }
-        
-        // prints if outside of boundaries 
+         
         if (pass1.length()<8 || hasUpper == false || hasLower == false || hasNumber == false){
             cout << "Invalid password. Missing:\n";
-            
-            if (pass1.length()>8 || hasUpper == true || hasLower == true || hasNumber == true){
-                cout << "All valid characters.\n";
-            }
             
             if (pass1.length()<8){
                 cout << "At least eight characters.\n";
@@ -84,9 +75,11 @@ void password1(){
             if (hasNumber == false){
                 cout << "At least one number.\n";
             }
+            
+            
         }
         
-    } while (!(hasUpper == true && hasLower == true && hasNumber == true));
+    } while (!(hasUpper == true && hasLower == true && hasNumber == true && pass1.length() >= 8));
 }
 
 void password2(){
@@ -96,10 +89,9 @@ void password2(){
         
         if (pass2 != pass1){
             cout << "Password does not match. Please try again.\n";
-            password1();
         }
         
     } while (!(pass2 == pass1));
     
-    cout << "\nPassword created.";
+    cout << "\nPassword is valid.";
 }
