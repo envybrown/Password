@@ -11,8 +11,8 @@ string pass1;
 string pass2;
 
 void instructions(); // print password requirements 
-void password1(); 
-void password2();
+void password1(); // password creation
+void password2(); // password confirmation
 
 int main()
 {
