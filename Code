@@ -8,7 +8,7 @@ At least eight (8) characters, including at least one number, at least one upper
 using namespace std;
 
 string pass1;
-string pass2;
+string pass2; // make passwords global
 
 void instructions(); // print password requirements 
 void password1(); // password creation
@@ -18,7 +18,7 @@ int main()
 {
     instructions();
     password1();
-    password2();
+    password2(); // functions in order
     
     return 0;
 }
@@ -35,12 +35,12 @@ void password1(){
     
     bool hasUpper = false;
     bool hasLower = false;
-    bool hasNumber = false;
+    bool hasNumber = false; // defines isuppper, islower, isdigit
     
     do {
         hasUpper = false;
         hasLower = false;
-        hasNumber = false;
+        hasNumber = false; // resets to false
     
         cout << "\nEnter password: ";
         getline (cin, pass1);
@@ -55,7 +55,7 @@ void password1(){
             if(isdigit(c)){
                 hasNumber = true;
             }
-        }
+        } // loops through each character for upper, lower, and digits
          
         if (pass1.length()<8 || hasUpper == false || hasLower == false || hasNumber == false){
             cout << "Invalid password. Missing:\n";
@@ -74,12 +74,11 @@ void password1(){
             
             if (hasNumber == false){
                 cout << "At least one number.\n";
-            }
-            
+            } // states what is missing if definitions are false
             
         }
         
-    } while (!(hasUpper == true && hasLower == true && hasNumber == true && pass1.length() >= 8));
+    } while (!(hasUpper == true && hasLower == true && hasNumber == true && pass1.length() >= 8)); // loop until everything is true
 }
 
 void password2(){
@@ -89,9 +88,9 @@ void password2(){
         
         if (pass2 != pass1){
             cout << "Password does not match. Please try again.\n";
-        }
+        } // compare pass2 to pass1
         
-    } while (!(pass2 == pass1));
+    } while (!(pass2 == pass1)); // loop statement until paswords match 
     
     cout << "\nPassword is valid.";
 }
