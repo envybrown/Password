@@ -1,5 +1,6 @@
 /* This program will ask the user to enter a password that contains:
-At least eight (8) characters, including at least one number, at least one upper case letter, and at least one lower case letter. */
+At least eight (8) characters, including at least one number, 
+at least one upper case letter, and at least one lower case letter. */
 
 #include <iostream>
 #include <string>
