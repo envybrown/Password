@@ -39,12 +39,17 @@ void password1(){
     bool hasLower = false;
     bool hasNumber = false; // defines isuppper, islower, isdigit
     
+    int attempts = 0;
+    int maxAttempts = 3;
+
     do {
         hasUpper = false;
         hasLower = false;
         hasNumber = false; // resets to false
-    
-        cout << "\nEnter password: ";
+
+        attempts++;
+
+        cout << "\nEnter password (Attempt "<< attempts << "/" << maxAttempts << "): ";
         getline (cin, pass1);
         
         for (char c : pass1){
@@ -81,9 +86,12 @@ void password1(){
             if (hasNumber == false){
                 cout << "At least one number.\n";
             } // states what is missing if definitions are false
-            
+
+            if (attempts >= maxAttempts){
+                cout << "\nMaximum attempts reached. Good bye.";
+                exit(1);
+            }
         }
-        
     } while (!(hasUpper == true && hasLower == true && hasNumber == true && pass1.length() >= 8 && pass1.length() <= 20 )); // loop until everything is true
 }
 
