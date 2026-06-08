@@ -65,7 +65,7 @@ void password1(){
         } // loops through each character for upper, lower, and digits
          
         if (pass1.length()<8 || pass1.length()>20 || hasUpper == false || hasLower == false || hasNumber == false){
-            cout << "Invalid password. Missing:\n";
+            cout << "Invalid password. Requires:\n";
             
             if (pass1.length()<8){
                 cout << "At least eight characters.\n";
