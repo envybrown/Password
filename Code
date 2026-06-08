@@ -39,7 +39,7 @@ void password1(){
     bool hasLower = false;
     bool hasNumber = false; // defines isuppper, islower, isdigit
     
-    int attempts = 0;
+    int attempts = 0; // define attempts
     int maxAttempts = 3;
 
     do {
@@ -49,7 +49,7 @@ void password1(){
 
         attempts++;
 
-        cout << "\nEnter password (Attempt "<< attempts << "/" << maxAttempts << "): ";
+        cout << "\nEnter password (Attempt "<< attempts << "/" << maxAttempts << "): "; // list attempts
         getline (cin, pass1);
         
         for (char c : pass1){
@@ -90,7 +90,7 @@ void password1(){
             if (attempts >= maxAttempts){
                 cout << "\nMaximum attempts reached. Good bye.";
                 exit(1);
-            }
+            } // when attempts are depleated end
         }
     } while (!(hasUpper == true && hasLower == true && hasNumber == true && pass1.length() >= 8 && pass1.length() <= 20 )); // loop until everything is true
 }
