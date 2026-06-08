@@ -27,6 +27,7 @@ int main()
 void instructions(){
     cout << "Create a password. Your password must include: " << endl;
     cout << "At least eight characters." << endl;
+    cout << "No more than twenty characters." << endl;
     cout << "At least one number." << endl;
     cout << "At least one uppercase letter." << endl;
     cout << "At least one lowercase letter." << endl;
@@ -58,11 +59,15 @@ void password1(){
             }
         } // loops through each character for upper, lower, and digits
          
-        if (pass1.length()<8 || hasUpper == false || hasLower == false || hasNumber == false){
+        if (pass1.length()<8 || pass1.length()>20 || hasUpper == false || hasLower == false || hasNumber == false){
             cout << "Invalid password. Missing:\n";
             
             if (pass1.length()<8){
                 cout << "At least eight characters.\n";
+            }
+            
+            if (pass1.length()>20){
+                cout << "No more than twenty characters.\n";
             }
             
             if (hasUpper == false){
@@ -79,7 +84,7 @@ void password1(){
             
         }
         
-    } while (!(hasUpper == true && hasLower == true && hasNumber == true && pass1.length() >= 8)); // loop until everything is true
+    } while (!(hasUpper == true && hasLower == true && hasNumber == true && pass1.length() >= 8 && pass1.length() <= 20 )); // loop until everything is true
 }
 
 void password2(){
